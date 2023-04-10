@@ -12,14 +12,22 @@ const Image = styled(Box)`
 `;
 
 const Heading = styled(Typography)`
-    font-size: 70px;
-    color: #FFFFFF;
-    line-height: 1
+font-size: 70px;
+color: #FFFFFF;
+backdrop-filter: blur(5px); 
+border-radius: 6px;
+box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
+background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+line-height: 1
 `;
 
 const SubHeading = styled(Typography)`
-    font-size: 20px;
-    background: #FFFFFF;
+font-size: 20px;
+color: white;       
+backdrop-filter: blur(5px); 
+border-radius: 6px;
+box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
+background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
 `;
 
 const Banner = () => {
@@ -27,7 +35,7 @@ const Banner = () => {
     return (
         <Image>
             <Heading>Blog and Journal </Heading>
-            <SubHeading>Thoughts in Vibes</SubHeading>
+            <SubHeading>Aakarshan</SubHeading>
         </Image>
     )
 }

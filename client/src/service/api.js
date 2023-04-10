@@ -4,7 +4,7 @@ import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from '../constants/config';
 
 import { getAccesstoken, getType } from '../utils/common-utils';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://journal-backend-n19b.onrender.com';
 
 
 const axiosInstance = axios.create({

@@ -18,12 +18,13 @@ const Container = styled(Box)`
     transition: all 0.3s ease;
     & > img, & > p {
         padding: 0 5px 5px 5px;
+        color: #FFFFFF;
     }
     &:hover {
-
-        background: #f913fa;
-        box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
-        background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+        box-shadow: 10px 10px 10px rgb(249, 19, 250,0.3);
+        border: 5px solid #f913fa;
+        transform: scale(1.05);
+        background-image:linear-gradient(to bottom right, rgba(249, 19, 250,0.7), rgba(255,255,255,0));
       }
 `;
 
@@ -35,18 +36,20 @@ const Image = styled('img')({
 });
 
 const Text = styled(Typography)`
-    color: #878787
-    font-size: 12px;
+    color: #f913fa;
+    font-size: 12px;   
 `;
 
 const Heading = styled(Typography)`
     font-size: 18px;
-    font-weight: 600
+    font-weight: 600;
+    color: #FFFFFF;
 `;
 
 const Details = styled(Typography)`
     font-size: 14px;
     word-break: break-word;
+    color: #FFFFFF;
 `;
 
 const Post = ({ post }) => {

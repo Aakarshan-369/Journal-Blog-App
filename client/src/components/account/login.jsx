@@ -12,6 +12,12 @@ const Component = styled(Box)`
     margin: auto;
     box-shadow: 25px 25px 25px rgba(30,30,30,0.3);
     height: auto;
+    transition: all 0.3s ease;
+    &:hover {
+      box-shadow: 10px 10px 10px rgb(30,30,30,0.7);
+      transform: scale(1.05);
+      background-image:linear-gradient(to bottom right, rgba(249, 19, 250,0.5), rgba(255,255,255,0));
+    }
 `;
 const Image = styled('img')({
     width: '20rem',
@@ -54,11 +60,13 @@ const LoginButton = styled(Button) `
   background: transparent;
   height: 48px;
   border-radius: 10px;
+  transition: all 0.3s ease;
   box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
   background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
 
   &:hover {
     background: #f913fa;
+    transform: scale(1.02);
     background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
   }
 `;
@@ -68,12 +76,13 @@ const SignupButton = styled(Button) `
   background: transparent;
   height: 48px;
   border-radius: 10px;
-  transition: all 0.7s ease;
+  transition: all 0.3s ease;
   box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
   background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
 
   &:hover {
     background: #f913fa;
+    transform: scale(1.02);
     background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
   }
 `;

@@ -38,6 +38,7 @@ border-radius: 7px;
   background-image:linear-gradient(to bottom right, rgba(255,255,255,0.15), rgba(255,255,255,0.15));
 
   &:hover {
+    border: 1px solid #f913fa;
     background: transparent;
     background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0.3));
   }
@@ -47,15 +48,27 @@ const PublishButton = styled(Button)`
 text-transform: none;
   background: transparent;
   height: 48px;
+  color: #FFFFFF;
   border-radius: 7px;
   box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
   background-image:linear-gradient(to bottom right, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
-  transition: all 0.7s ease;
+  transition: all 0.2s ease;
 
-  &:hover {
-    background: #f913fa;
-    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
-  }
+    &:hover {
+        box-shadow: 5px 5px 5px rgb(249, 19, 250,0.3);
+        transform: scale(1.05);
+        background-image:linear-gradient(to bottom right, rgba(249, 19, 250,0.7), rgba(255,255,255,0));
+      }
+`;
+
+const StyledAdd = styled(Add)`
+&:hover {
+  box-shadow: 5px 5px 5px rgb(249, 19, 250,0.3);
+ border-radius: 10px;
+  transform: scale(1.05);
+  background-image:linear-gradient(to bottom right, rgba(249, 19, 250,0.7), rgba(255,255,255,0));
+}
+
 `;
 
 const Textarea = styled(TextareaAutosize)`
@@ -69,6 +82,7 @@ const Textarea = styled(TextareaAutosize)`
   background-image:linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0.1));
   color: #ffffff ;
   &:hover {
+    border: 1px solid #f913fa;
     background: transparent;
     background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0.3));
   }
@@ -135,7 +149,7 @@ const CreatePost = () => {
 
         <StyledFormControl>
             <label htmlFor='fileinput'>
-                <Add fontSize="large" color="secondary" />
+                <StyledAdd fontSize="large" color="secondary" />
             </label>
             <input type = 'file' 
                 id="fileinput"
@@ -143,7 +157,7 @@ const CreatePost = () => {
                 onChange={(e) => setFile(e.target.files[0])}
                 />
                 <InputTextField placeholder='Title' onChange={(e) => handleChange(e)} name = 'title' />
-                <PublishButton variant="contained" onClick={() => savePost()}>Publish</PublishButton>
+                <PublishButton variant="standard" onClick={() => savePost()}>Publish</PublishButton>
         </StyledFormControl>
 
         <Textarea 

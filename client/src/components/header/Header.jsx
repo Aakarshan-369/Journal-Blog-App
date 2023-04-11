@@ -12,6 +12,11 @@ const Component = styled(AppBar)`
   background-image:linear-gradient(to bottom right, rgba(0,0,0,0.2), rgba(0,0,0,0.5));
 
   height: auto ;  
+  &:hover {
+    box-shadow: 5px 5px 5px rgb(249, 19, 250,0.3);
+    background-image:linear-gradient(to bottom right, rgba(0,0,0,0.7), rgba(255,255,255,0));
+  }
+  
 `;
 
 const Container = styled(Toolbar)`
@@ -21,6 +26,7 @@ const Container = styled(Toolbar)`
         padding: 10px;
         font-size: 14px;
     }
+    
 `;
 
 
@@ -39,14 +45,14 @@ const StyleButton = styled(Button)`
     letter-spacing: 3px;
     font-family: 'Roboto', sans-serif;
     color: #FFFFFF;
-    transition: all 0.7s ease;
+    transition: all 0.2s ease;
 
     &:hover {
-        background: #f913fa;
-        backdrop-filter: blur(75px);
-        background-image: linear-gradient(to bottom right, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-        box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
-    }
+        box-shadow: 5px 5px 5px rgb(249, 19, 250,0.3);
+        transform: scale(1.05);
+        background-image:linear-gradient(to bottom right, rgba(249, 19, 250,0.7), rgba(255,255,255,0));
+      }
+      
 `;
 
 

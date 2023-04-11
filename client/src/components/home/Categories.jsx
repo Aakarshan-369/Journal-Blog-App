@@ -6,9 +6,11 @@ import { categories } from '../../constants/data';
 
 const StyledTable = styled(Table)`
     border: 1px solid rgba(224, 224, 224, 1);
-    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.12), rgba(255,255,255,0.15));
-    backdrop-filter: blur(50px); 
-    border-radius:10px;
+    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.1), rgba(255,255,255,0));
+    &:hover {
+        box-shadow: 1px 1px 1px rgb(249, 19, 250,0.3);
+        border: 1px solid #f913fa;
+      }
 `;
     
 const StyledButton = styled(Button)`
@@ -17,14 +19,18 @@ const StyledButton = styled(Button)`
     text-decoration: none;
     background: transparent;
   height: 48px;
+  color: #FFFFFF;
   border-radius: 7px;
   box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
   background-image:linear-gradient(to bottom right, rgba(255,255,255,0.5), rgba(255,255,255,0.2));
 
-  &:hover {
-    background: #f913fa;
-    background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
-  }
+  transition: all 0.2s ease;
+
+    &:hover {
+        box-shadow: 5px 5px 5px rgb(249, 19, 250,0.3);
+        transform: scale(1.05);
+        background-image:linear-gradient(to bottom right, rgba(249, 19, 250,0.7), rgba(255,255,255,0));
+      }
 
 
 `;
@@ -41,7 +47,7 @@ const Categories = () => {
     return (
         <>
             <Link to={`/create?category=${category || ''}`} style={{ textDecoration: 'none' }}>
-                <StyledButton variant="contained">Create Blog</StyledButton>
+                <StyledButton variant="standard">Create Blog</StyledButton>
             </Link>
             <StyledTable>
                 <TableHead>

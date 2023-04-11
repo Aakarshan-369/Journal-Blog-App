@@ -17,8 +17,9 @@ color: #FFFFFF;
 backdrop-filter: blur(5px); 
 border-radius: 6px;
 box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
-background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
-line-height: 1
+background-image:linear-gradient(to bottom right, rgba(255,255,255,0), rgba(255,255,255,0));
+line-height: 1;
+
 `;
 
 const SubHeading = styled(Typography)`
@@ -27,7 +28,7 @@ color: white;
 backdrop-filter: blur(5px); 
 border-radius: 6px;
 box-shadow: 25px 25px 25px rgba(30, 30, 30, 0.3);
-background-image:linear-gradient(to bottom right, rgba(255,255,255,0.3), rgba(255,255,255,0));
+background-image:linear-gradient(to bottom right, rgba(255,255,255,0), rgba(255,255,255,0));
 `;
 
 const Banner = () => {

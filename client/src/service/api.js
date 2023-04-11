@@ -1,65 +1,61 @@
-import axios from 'axios';
+import axios from "axios";
 
-import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from '../constants/config';
+import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from "../constants/config";
 
-import { getAccesstoken, getType } from '../utils/common-utils';
+import { getAccesstoken, getType } from "../utils/common-utils";
 
-const API_URL = 'https://journal-backend-n19b.onrender.com';
-
+const API_URL = "https://journal-backend-n19b.onrender.com";
 
 const axiosInstance = axios.create({
-    baseURL: API_URL,
-    timeout: 10000, 
-    headers: {
-        "content-type" : "application/json"
-    }
+  baseURL: API_URL,
+  timeout: 10000,
+  headers: {
+    "content-type": "application/json",
+  },
 });
 
 axiosInstance.interceptors.request.use(
-    function(config) {
-        if (config.TYPE.params) {
-            config.params = config.TYPE.params;
-        } else if (config.TYPE.query) {
-            config.url = config.url + '/' + config.TYPE.query;
-        }
-        return config;
-    },
-    function(error) {
-        
-        return Promise.reject(error);
+  function (config) {
+    if (config.TYPE.params) {
+      config.params = config.TYPE.params;
+    } else if (config.TYPE.query) {
+      config.url = config.url + "/" + config.TYPE.query;
     }
-)
+    return config;
+  },
+  function (error) {
+    return Promise.reject(error);
+  }
+);
 axiosInstance.interceptors.response.use(
-    
-    function(response) {
-        // Stop global loader here
-       
+  function (response) {
+    // Stop global loader here
 
-        return processResponse(response);
-    },
-    function(error) {   
-        // Stop global loader here
-        // console.log("processError of interceptor response use called");
-        return Promise.reject(processError(error));
-    }
-)
+    return processResponse(response);
+  },
+  function (error) {
+    // Stop global loader here
+    // console.log("processError of interceptor response use called");
+    return Promise.reject(processError(error));
+  }
+);
 //if sucess -> return {isSucess: true, data: object}
 //if fail -> return {isFailure: true, status: string, msg: string, code: int}
 
 const processResponse = (response) => {
-    if (response?.status === 200) {
-        return { isSuccess: true, data: response.data }
-    } else {
-        return {
-            isFailure: true,
-            status: response?.status,
-            msg: response?.msg,
-            code: response?.code
-        }
-    }
-}
+  if (response?.status === 200) {
+    return { isSuccess: true, data: response.data };
+  } else {
+    return {
+      isFailure: true,
+      status: response?.status,
+      msg: response?.msg,
+      code: response?.code,
+    };
+  }
+};
 
-const API ={} ;
+const API = {};
 
 // const ProcessError = (error) => {
 //     if (error.response) {
@@ -93,55 +89,57 @@ const API ={} ;
 // }
 // }
 const processError = (error) => {
-    if (error.response) {
-        return {
-            isError: true,
-            msg: API_NOTIFICATION_MESSAGES.responseFailure,
-            code: error.response.status
-        }
-    }
-    else if (error.request) {
-        // The request was made but no response was received
-        return {
-            isError: true,
-            msg: API_NOTIFICATION_MESSAGES.requestFailure,
-            code: ""
-        }
-    }
-    else {
-        // Something happened in setting up the request that triggered an Error
-        return {
-            isError: true,
-            msg: API_NOTIFICATION_MESSAGES.networkError,
-            code: ""
-        }
-    }
-}
+  if (error.response) {
+    return {
+      isError: true,
+      msg: API_NOTIFICATION_MESSAGES.responseFailure,
+      code: error.response.status,
+    };
+  } else if (error.request) {
+    // The request was made but no response was received
+    return {
+      isError: true,
+      msg: API_NOTIFICATION_MESSAGES.requestFailure,
+      code: "",
+    };
+  } else {
+    // Something happened in setting up the request that triggered an Error
+    return {
+      isError: true,
+      msg: API_NOTIFICATION_MESSAGES.networkError,
+      code: "",
+    };
+  }
+};
 
 for (const [key, value] of Object.entries(SERVICE_URLS)) {
-    API[key] = (body, showUploadProgress, showDownloadProgress) =>
-        axiosInstance({
-            method: value.method,
-            url: value.url,
-            data: body,
-            responseType: value.responseType,
-            headers: {
-                authorization: getAccesstoken(),
-            },
-            TYPE: getType(value, body),
-            onUploadProgress: function(progressEvent) {
-                if (showUploadProgress) {
-                    let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                    showUploadProgress(percentCompleted);
-                }
-            },
-            onDownloadProgress: function(progressEvent) {
-                if (showDownloadProgress) {
-                    let percentCompleted = Math.round((progressEvent.loaded * 100) / progressEvent.total);
-                    showDownloadProgress(percentCompleted);
-                }
-            }
-        });
+  API[key] = (body, showUploadProgress, showDownloadProgress) =>
+    axiosInstance({
+      method: value.method,
+      url: value.url,
+      data: body,
+      responseType: value.responseType,
+      headers: {
+        authorization: getAccesstoken(),
+      },
+      TYPE: getType(value, body),
+      onUploadProgress: function (progressEvent) {
+        if (showUploadProgress) {
+          let percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          showUploadProgress(percentCompleted);
+        }
+      },
+      onDownloadProgress: function (progressEvent) {
+        if (showDownloadProgress) {
+          let percentCompleted = Math.round(
+            (progressEvent.loaded * 100) / progressEvent.total
+          );
+          showDownloadProgress(percentCompleted);
+        }
+      },
+    });
 }
 
 export { API };

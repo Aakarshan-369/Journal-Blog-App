@@ -90,7 +90,7 @@ const loginInitialValues = {
 
 
 const Login = ({isUserAuthenticated}) => {
-    const imageURL = '../../../public/blog-removebg.png'; 
+    const imageURL = '/blog-removebg.png'; 
     const [account, toggleAccount] = useState('login');
     const [login, setLogin] = useState(loginInitialValues)
     const [signup, setSignup] = useState(signupInitialValues);

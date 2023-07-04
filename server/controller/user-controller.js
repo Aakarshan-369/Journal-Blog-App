@@ -26,7 +26,6 @@ export const loginUser = async (request,response) => {
     let user = await User.findOne({username: request.body.username});
     if(!user) {
         return response.status(400).json({msg: 'Username does not match'});
-        console.log("cron job active aka request received");
     }
     try {
         

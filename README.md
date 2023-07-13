@@ -5,13 +5,15 @@
 
 # App Preview
 
-![The Feed](https://raw.githubusercontent.com/Aakarshan-369/Journal-Blog-App/main/login%20page%20%20gif.gif)
+![Login Page](https://github.com/Aakarshan-369/Journal-Blog-App/assets/53165427/254f1069-b337-40c0-9a70-f0ca861953b4)
 
-![Request-Response Workflow](https://github.com/Aakarshan-369/Journal-Blog-App/blob/main/Blog%20Page%20gif.gif?raw=true)
+![The Feed](https://github.com/Aakarshan-369/Journal-Blog-App/assets/53165427/9755287c-1583-488c-b209-fb235bdd8bcf)
+
 
 # App Architecture
 
-![Request-Response Workflow](https://github.com/Aakarshan-369/Journal-Blog-App/blob/main/Blog%20architecture.png?raw=true)
+![Blog architecture](https://github.com/Aakarshan-369/Journal-Blog-App/assets/53165427/98e31939-f79f-4fce-8e18-cdcfd836f429)
+
 
 
 - A Journal Blog application that provides users with a simple and intuitive way to create, manage, and publish their own blog content
